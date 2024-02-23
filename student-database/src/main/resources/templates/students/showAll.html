@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>STUDENTS</h1>
+        <ul>
+            <li th:each="student:${stu}">
+                <span th:text="${student.name}"></span> <br>
+                <span th:text="${student.weight}"></span>
+                <div th:switch="${student.name}">
+                    <span th:case="'bobby'">HEY!</span>
+                    <span th:case="'steve'">Steve!</span>
+                    <span th:case="*">generaluser</span>
+                </div>
+            </li>
+        </ul>
+    </main>
+</body>
+</html>
