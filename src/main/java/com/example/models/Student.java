@@ -1,14 +1,25 @@
 package com.example.models;
 
-public class Students {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="students")
+public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int uid;
     private String name;
     private String weight;
     private String height;
     private String hairColor;
     private String gpa;
-    public Students() {
+    public Student() {
     }
-    public Students(String name, String weight, String height, String hairColor, String gpa) {
+    public Student(String name, String weight, String height, String hairColor, String gpa) {
         this.name = name;
         this.weight = weight;
         this.height = height;
@@ -44,6 +55,12 @@ public class Students {
     }
     public void setGpa(String gpa) {
         this.gpa = gpa;
+    }
+    public int getUid() {
+        return uid;
+    }
+    public void setUid(int uid) {
+        this.uid = uid;
     }
     
 }
