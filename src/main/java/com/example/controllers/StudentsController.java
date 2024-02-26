@@ -41,7 +41,7 @@ public class StudentsController {
       int newHeight = Integer.parseInt(newstudent.get("height"));
       int newWeight = Integer.parseInt(newstudent.get("weight"));
       String newHairColor = newstudent.get("hairColor");
-      String newGPA = newstudent.get("gpa");
+      float newGPA = Float.parseFloat(newstudent.get("gpa"));
       studentRepo.save(new Student(newName,newHeight,newWeight,newHairColor,newGPA));
       response.setStatus(201);
       return "students/addedStudent";

@@ -12,10 +12,10 @@ public class Student {
     private int weight;
     private int height;
     private String hairColor;
-    private String gpa;
+    private float gpa;
     public Student() {
     }
-    public Student(String name, Integer weight, Integer height, String hairColor, String gpa) {
+    public Student(String name, Integer weight, Integer height, String hairColor, float gpa) {
         this.name = name;
         this.weight = weight;
         this.height = height;
@@ -46,10 +46,10 @@ public class Student {
     public void setHairColor(String hairColor) {
         this.hairColor = hairColor;
     }
-    public String getGpa() {
+    public float getGpa() {
         return gpa;
     }
-    public void setGpa(String gpa) {
+    public void setGpa(float gpa) {
         this.gpa = gpa;
     }
     public int getUid() {

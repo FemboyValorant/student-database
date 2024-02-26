@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>View Students</title>
 </head>
 <body>
     <main>
         <h1>STUDENTS</h1>
-        <ul>
-            <li th:each="student:${stu}">
-                <span th:text="${student.name}"></span> <br>
-                <span th:text="${student.weight}"></span>
-                <div th:switch="${student.name}">
-                    <span th:case="'bobby'">HEY!</span>
-                    <span th:case="'steve'">Steve!</span>
-                    <span th:case="*">generaluser</span>
-                </div>
-            </li>
-        </ul>
+            <span class="rectangle" th:each="student:${stu}" style="width: 200px; display: inline-block;">
+                <span th:style=
+                "'outline-style: solid;
+                display: flex; 
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                outline-color:'+${student.hairColor}+'; 
+                width: '+${student.height}+'px;
+                height: '+${student.weight}+'px;'" >
+                    <span th:text="${student.name}"></span>
+                    <span th:text="${student.gpa} + ' GPA'"></span>
+                </span>
+            </span>
     </main>
 </body>
 </html>
