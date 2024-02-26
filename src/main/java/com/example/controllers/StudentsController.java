@@ -13,6 +13,7 @@ import com.example.models.Student;
 import com.example.models.StudentsRepository;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.transaction.Transactional;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,6 +67,16 @@ public class StudentsController {
       studentRepo.save(udStudent);
       response.setStatus(201);
       return "students/updatedStudent";
+   }
+
+   @Transactional
+   @PostMapping("/students/delete")
+   public String deleteStudent(@RequestParam Map<String, String> deletestudent, HttpServletResponse response){
+      System.out.println("DELETE student"); 
+
+      studentRepo.deleteByName(deletestudent.get("name"));
+      response.setStatus(201);
+      return "students/deletedStudent";
    }
    
 }
