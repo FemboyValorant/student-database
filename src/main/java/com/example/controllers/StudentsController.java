@@ -46,5 +46,26 @@ public class StudentsController {
       response.setStatus(201);
       return "students/addedStudent";
    }
+
+   @PostMapping("/students/update")
+   public String updateStudent(@RequestParam Map<String, String> updatestudent, HttpServletResponse response){
+      System.out.println("UPDATE student");
+
+      String newName = updatestudent.get("name");
+      int newHeight = Integer.parseInt(updatestudent.get("height"));
+      int newWeight = Integer.parseInt(updatestudent.get("weight"));
+      String newHairColor = updatestudent.get("hairColor");
+      float newGPA = Float.parseFloat(updatestudent.get("gpa"));
+
+      Student udStudent = studentRepo.findByName(newName);
+      udStudent.setHeight(newHeight);
+      udStudent.setWeight(newWeight);
+      udStudent.setHairColor(newHairColor);
+      udStudent.setGpa(newGPA);
+
+      studentRepo.save(udStudent);
+      response.setStatus(201);
+      return "students/updatedStudent";
+   }
    
 }
